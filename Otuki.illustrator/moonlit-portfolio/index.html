@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111226">
+  <meta name="description" content="月明かりのような物語を描くイラストレーターのポートフォリオ。作品のご依頼・ご相談はこちらから。">
+  <title>Otuki. — Illustrator Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Zen+Old+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Otuki. ホーム">
+      <span class="brand-mark">☾</span><span>Otuki. <small>ILLUSTRATION STUDIO</small></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="メニューを開く"><span></span><span></span></button>
+    <nav id="main-nav" class="main-nav">
+      <a href="#works">WORKS <i>01</i></a>
+      <a href="#about">ABOUT <i>02</i></a>
+      <a href="#services">ORDER <i>03</i></a>
+      <a class="nav-contact" href="#contact">LET'S TALK <span>↓</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+      <div class="star-field" aria-hidden="true"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="live-dot"></span> INDEPENDENT ILLUSTRATOR / JAPAN</p>
+        <h1>あなたの<span class="sbr"><br></span>心にある<br><em>星</em>を、誰かの心に届く<span class="text-yellow">光</span>へ。</h1>
+        <p class="hero-lead">心に残る色と、ふと目を止める余白。<br>あなたのアイデアを、一枚の絵に。</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#works">作品を見る <span>↓</span></a>
+          <a class="text-link" href="#contact">制作のご相談 <span>↓</span></a>
+        </div>
+      </div>
+      <div class="hero-art reveal" data-delay="150">
+        <div class="art-frame">
+          <div class="art-topline"><span>FIG. 001 — LUNAR DREAM</span><span>2026</span></div>
+          <div class="hero-artwork artwork-placeholder" role="img" aria-label="作品画像のプレースホルダー">
+            <div class="placeholder-moon"></div><div class="placeholder-halo"></div>
+            <span class="placeholder-label">YOUR ARTWORK<br><small>img/hero.jpg に差し替え</small></span>
+          </div>
+          <div class="art-caption"><span>01 / A STUDY IN MOONLIGHT</span><span>↗</span></div>
+        </div>
+        <div class="floating-note note-top">dream<br>in color <span>✳</span></div>
+        <div class="floating-note note-bottom"><span class="note-star">✦</span> MADE WITH<br>IMAGINATION</div>
+      </div>
+      <div class="hero-bottom"><span>SCROLL TO EXPLORE</span><span class="scroll-line"></span><span>35° 41' N / CREATIVE UNIVERSE</span></div>
+    </section>
+
+    <section class="intro-strip reveal">
+      <span class="strip-symbol">✳</span>
+      <p>ILLUSTRATION FOR <strong>YOUR NEXT STORY</strong></p>
+      <span class="strip-rule"></span>
+      <p>BOOKS / MUSIC / BRANDING / PERSONAL</p>
+    </section>
+
+    <section class="section works-section" id="works">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow">01 — SELECTED WORKS</p><h2>描いたもの、<br><em>生まれた世界。</em></h2></div>
+        <p class="section-aside">ここに並ぶのは、まだほんの一部。<br>作品画像をクリックして、細部までご覧ください。</p>
+      </div>
+      <div class="filter-row reveal" role="group" aria-label="作品の絞り込み">
+        <button class="filter-btn active" data-filter="all">ALL <span>06</span></button>
+        <button class="filter-btn" data-filter="character">CHARACTER</button>
+        <button class="filter-btn" data-filter="keyvisual">KEY VISUAL</button>
+        <button class="filter-btn" data-filter="personal">PERSONAL</button>
+      </div>
+      <div class="works-grid">
+        <button class="work-card work-large reveal" data-category="keyvisual" data-title="Lunar dream" data-desc="月明かりと静けさをテーマにしたキービジュアル。" data-image="img/work-01.jpg">
+          <span class="work-image placeholder-art art-lilac"><span class="art-number">01</span><span class="art-shape shape-moon"></span><span class="art-word">LUNAR<br>DREAM</span><span class="work-placeholder">img/work-01.jpg</span></span>
+          <span class="work-meta"><span><b>Lunar dream</b><small>KEY VISUAL / 2026</small></span><span class="work-arrow">↗</span></span>
+        </button>
+        <button class="work-card reveal" data-category="character" data-title="A little traveler" data-desc="小さな旅人のキャラクターデザイン。" data-image="img/work-02.jpg">
+          <span class="work-image placeholder-art art-peach"><span class="art-number">02</span><span class="shape-sun"></span><span class="art-word">A LITTLE<br>TRAVELER</span><span class="work-placeholder">img/work-02.jpg</span></span>
+          <span class="work-meta"><span><b>A little traveler</b><small>CHARACTER / 2026</small></span><span class="work-arrow">↗</span></span>
+        </button>
+        <button class="work-card reveal" data-category="personal" data-title="Blue hour" data-desc="夜が朝に変わる、その一瞬を描いた個人作品。" data-image="img/work-03.jpg">
+          <span class="work-image placeholder-art art-blue"><span class="art-number">03</span><span class="shape-window"></span><span class="art-word">BLUE<br>HOUR</span><span class="work-placeholder">img/work-03.jpg</span></span>
+          <span class="work-meta"><span><b>Blue hour</b><small>PERSONAL / 2026</small></span><span class="work-arrow">↗</span></span>
+        </button>
+        <button class="work-card work-tall reveal" data-category="character" data-title="Garden of stars" data-desc="星の庭に住むキャラクターたち。" data-image="img/work-04.jpg">
+          <span class="work-image placeholder-art art-green"><span class="art-number">04</span><span class="shape-flower">✳</span><span class="art-word">GARDEN<br>OF STARS</span><span class="work-placeholder">img/work-04.jpg</span></span>
+          <span class="work-meta"><span><b>Garden of stars</b><small>CHARACTER / 2026</small></span><span class="work-arrow">↗</span></span>
+        </button>
+        <button class="work-card reveal" data-category="keyvisual" data-title="Soft signal" data-desc="音楽イベントを想定したビジュアル提案。" data-image="img/work-05.jpg">
+          <span class="work-image placeholder-art art-pink"><span class="art-number">05</span><span class="shape-ring"></span><span class="art-word">SOFT<br>SIGNAL</span><span class="work-placeholder">img/work-05.jpg</span></span>
+          <span class="work-meta"><span><b>Soft signal</b><small>KEY VISUAL / 2026</small></span><span class="work-arrow">↗</span></span>
+        </button>
+        <button class="work-card reveal" data-category="personal" data-title="After the rain" data-desc="雨上がりの空気を色で表現した作品。" data-image="img/work-06.jpg">
+          <span class="work-image placeholder-art art-yellow"><span class="art-number">06</span><span class="shape-star">✦</span><span class="art-word">AFTER<br>THE RAIN</span><span class="work-placeholder">img/work-06.jpg</span></span>
+          <span class="work-meta"><span><b>After the rain</b><small>PERSONAL / 2026</small></span><span class="work-arrow">↗</span></span>
+        </button>
+      </div>
+      <p class="works-footnote">※ 現在はデザイン確認用の仮作品です。公開前にご自身の作品へ差し替えてください。</p>
+    </section>
+
+    <section class="manifesto">
+      <div class="manifesto-stars" aria-hidden="true">✦　　·　　✧　　·　　✦</div>
+      <p class="eyebrow reveal">A NOTE FROM THE STUDIO</p>
+      <p class="manifesto-line reveal">ただ綺麗なだけじゃない。<br><em>誰かの心に、残る絵を。</em></p>
+      <p class="manifesto-sub reveal">色、形、空気感。小さな違和感やときめきを大切に、<br>見る人の想像が広がるイラストを制作しています。</p>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="about-visual reveal"><div class="about-orbit"></div><div class="about-moon">☾</div><span class="about-stamp">ILLUSTRATOR<br>AND DAYDREAMER</span><span class="about-coordinate">MOON PHASE / 03:17 AM</span></div>
+      <div class="about-copy reveal" data-delay="100">
+        <p class="eyebrow">02 — BEHIND THE ART</p>
+        <h2>はじめまして、<br><em>Otuki.です。</em></h2>
+        <p>イラストを通して、まだ言葉になっていないイメージを形にします。やわらかな色彩、少し不思議な世界観、物語を感じる一枚が得意です。</p>
+        <p>書籍・配信・音楽・グッズなど、用途に合わせたご提案も可能です。まずはイメージ段階から、お気軽にご相談ください。</p>
+        <a class="text-link" href="#contact">プロフィール・ご相談はこちら <span>↗</span></a>
+        <div class="about-stats"><div><strong>06<span>+</span></strong><small>SELECTED WORKS</small></div><div><strong>∞</strong><small>IMAGINATION</small></div><div><strong>JP</strong><small>BASED IN JAPAN</small></div></div>
+      </div>
+    </section>
+
+    <section class="services-section" id="services">
+      <div class="section section-inner">
+        <div class="section-heading reveal"><div><p class="eyebrow">03 — LET'S CREATE</p><h2>こんなご依頼を<br><em>お待ちしています。</em></h2></div><p class="section-aside">目的やご予算に合わせて、<br>制作内容を一緒に整理します。</p></div>
+        <div class="service-list">
+          <article class="service-item reveal"><span class="service-no">01</span><div><h3>書籍・装画・挿絵</h3><p>本の表紙、挿絵、記事や読み物のビジュアル</p></div><span class="service-icon">↗</span></article>
+          <article class="service-item reveal"><span class="service-no">02</span><div><h3>キービジュアル</h3><p>イベント、配信、音楽、SNSキャンペーンなど</p></div><span class="service-icon">↗</span></article>
+          <article class="service-item reveal"><span class="service-no">03</span><div><h3>キャラクター・グッズ</h3><p>オリジナルキャラクター、アイコン、グッズ用イラスト</p></div><span class="service-icon">↗</span></article>
+          <article class="service-item reveal"><span class="service-no">04</span><div><h3>個人のお客様</h3><p>SNSアイコン、記念イラストなど（内容により応相談）</p></div><span class="service-icon">↗</span></article>
+        </div>
+        <div class="price-note reveal"><span>✳</span><p>料金・納期は内容や使用範囲によって異なります。<br><strong>ご予算が決まっていない段階でも、お気軽にご相談ください。</strong></p></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-stars" aria-hidden="true">✦</div>
+      <p class="eyebrow reveal">04 — YOUR IDEA STARTS HERE</p>
+      <h2 class="reveal">次の物語を、<br><em>一緒につくりませんか。</em></h2>
+      <p class="contact-lead reveal">ご依頼・お見積もり・ご質問など、お気軽にご連絡ください。</p>
+      <a class="contact-button reveal" href="https://x.com/Otuki_desu" target="_blank"><span>制作について相談する</span><span class="contact-button-arrow">↗</span></a>
+      <p class="contact-caution reveal">依頼受付用のメールアドレスがあればここに記載</p>
+      <div class="social-links reveal">
+        <a href="https://x.com/Otuki_desu" target="_blank" aria-label="X">X ↗</a>
+        <a href="https://www.instagram.com/otuki_desu/" target="_blank" aria-label="Instagram">INSTAGRAM ↗</a>
+        <a href="https://www.youtube.com/@otuki_desu" target="_blank" aria-label="YouTube">YOUTUBE ↗</a>
+        <a href="https://skeb.jp/@Otuki_desu" target="_blank" aria-label="Skeb">SKEB ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#top">☾ MOONLIT STUDIO</a><span>ILLUSTRATION WITH A LITTLE MAGIC.</span><a href="#top">BACK TO TOP ↑</a><small>© <span id="year"></span> MOONLIT STUDIO</small></footer>
+
+  <dialog class="work-dialog" aria-label="作品詳細">
+    <button class="dialog-close" aria-label="閉じる">×</button>
+    <div class="dialog-image placeholder-art art-lilac"><span class="art-word">ARTWORK</span></div>
+    <div class="dialog-copy"><p class="eyebrow">SELECTED WORK</p><h3>作品タイトル</h3><p>作品の説明</p></div>
+  </dialog>
+</body>
+</html>
