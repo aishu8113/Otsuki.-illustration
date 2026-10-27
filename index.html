@@ -28,7 +28,7 @@
         <!-- メインビジュアル -->
         <section class="hero">
             <p class="sub-title">ILLUSTRATION PORTFOLIO</p>
-            <h1>月のように、<br>静かに心に残る作品を。</h1>
+            <h1 id="hero-title">月のように、<br>静かに心に残る作品を。</h1>
             <p class="hero-text">
                 イラストレーター Otuki. のポートフォリオサイトです。<br>
                 日々の制作や作品について発信しています。
@@ -231,6 +231,29 @@
         <a href="#" class="logo">☾ Otuki.</a>
         <p>© 2026 Otuki. illustration</p>
     </footer>
+<script>
+  async function loadCMS() {
+    try {
+      const response = await fetch("./data/site-settings.json");
 
+      if (!response.ok) {
+        throw new Error("CMSデータを取得できませんでした");
+      }
+
+      const data = await response.json();
+
+      if (data.heroTitle) {
+        const title = document.getElementById("hero-title");
+        title.textContent = data.heroTitle;
+        title.style.whiteSpace = "pre-line";
+      }
+    } catch (error) {
+      console.error("CMS読み込みエラー:", error);
+    }
+  }
+
+  loadCMS();
+</script>
+    
 </body>
 </html>
