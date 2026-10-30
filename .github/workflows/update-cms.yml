@@ -20,19 +20,45 @@ jobs:
         env:
           MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
         run: |
+          set -e
           mkdir -p data
 
+          # サイト全体の設定
           curl --fail --silent --show-error \
             -H "X-MICROCMS-API-KEY: $MICROCMS_API_KEY" \
             "https://otuki.microcms.io/api/v1/site-settings" \
             -o data/site-settings.json
+
+          # 作品一覧
+          curl --fail --silent --show-error \
+            -H "X-MICROCMS-API-KEY: $MICROCMS_API_KEY" \
+            "https://otuki.microcms.io/api/v1/works?limit=100" \
+            -o data/works.json
+
+          # 活動記録
+          curl --fail --silent --show-error \
+            -H "X-MICROCMS-API-KEY: $MICROCMS_API_KEY" \
+            "https://otuki.microcms.io/api/v1/activities?limit=100" \
+            -o data/activities.json
+
+          # ブログ
+          curl --fail --silent --show-error \
+            -H "X-MICROCMS-API-KEY: $MICROCMS_API_KEY" \
+            "https://otuki.microcms.io/api/v1/blogs?limit=100" \
+            -o data/blogs.json
+
+          # 料金表
+          curl --fail --silent --show-error \
+            -H "X-MICROCMS-API-KEY: $MICROCMS_API_KEY" \
+            "https://otuki.microcms.io/api/v1/prices?limit=100" \
+            -o data/prices.json
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/site-settings.json
+          git add data/
 
           if ! git diff --cached --quiet; then
             git commit -m "Update CMS data"
