@@ -1,9 +1,9 @@
 {
   "createdAt": "2026-10-27T11:50:51.768Z",
-  "updatedAt": "2026-10-30T14:17:35.200Z",
+  "updatedAt": "2026-10-30T15:19:40.791Z",
   "publishedAt": "2026-10-27T11:50:58.325Z",
-  "revisedAt": "2026-10-30T14:17:35.200Z",
-  "heroDescription": "イラストレーター Otuki. のポートフォリオサイトです。\nCMSから説明文を更新できるかテストしています。",
+  "revisedAt": "2026-10-30T15:19:40.791Z",
+  "heroDescription": "イラストレーター Otuki. のポートフォリオサイトです。[sp]\nCMSから説明文を更新できるかテストしています。",
   "profileImage": {
     "url": "https://images.microcms-assets.io/assets/654c69b592c8413aab36fa75a061cc29/668dbd64e5ea4c4980e7408138b64a73/133900385010619290.jpg",
     "height": 2160,
@@ -13,5 +13,5 @@
   "requestStatus": [
     "● お仕事受付中"
   ],
-  "requestDescription": "依頼多数のため、現在納品までお時間をいただく可能性があります。"
+  "requestDescription": "依頼多数のため、[sp]現在納品までお時間をいただく可能性があります。"
 }
