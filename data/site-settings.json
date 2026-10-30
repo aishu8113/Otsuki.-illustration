@@ -10,6 +10,6 @@
     "width": 3840
   },
   "profileText": "テストテスト",
-  "requestStatus": "● 現在、ご依頼受付を停止しています",
-  "requestDescription": "制作スケジュールの都合により、新規のご依頼受付を一時停止しています。"
+  "requestDescription": "制作スケジュールの都合により、新規のご依頼受付を一時停止しています。",
+  "requestStatus": []
 }
