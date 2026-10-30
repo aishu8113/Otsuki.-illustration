@@ -19,6 +19,18 @@
     el.appendChild(document.createTextNode(part));
   });
 };
+
+  /* PC版だけ改行する */
+.pc-only {
+  display: inline;
+}
+
+@media screen and (max-width: 600px) {
+  .pc-only {
+    display: none;
+  }
+}
+  
   const setLink = (selector, value) => {
     const el = $(selector);
     if (!el || typeof value !== 'string' || !value.trim()) return;
