@@ -52,7 +52,7 @@ h2 {
 
 h3 {
     color: var(--navy);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -83,7 +83,7 @@ section {
 
 .section-heading > p:last-child {
     color: var(--muted);
-    font-size: 13px;
+    font-size: 16px;
 }
 
 
@@ -301,7 +301,7 @@ section {
 .work-card p {
     margin-bottom: 0;
     color: var(--muted);
-    font-size: 12px;
+    font-size: 14px;
 }
 
 
@@ -379,13 +379,13 @@ section {
     gap: 12px;
     padding: 12px 0;
     border-bottom: 1px solid var(--line);
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .note {
     margin: 14px 0 0;
     color: var(--muted);
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .status-label {
@@ -394,12 +394,12 @@ section {
     border-radius: 20px;
     background: #e5ece6;
     color: #577c66;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .status-panel > p:not(.status-label) {
     color: var(--muted);
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .status-panel .button {
@@ -422,7 +422,7 @@ section {
 }
 
 .contact-section > p:not(.english-title) {
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .contact-form {
