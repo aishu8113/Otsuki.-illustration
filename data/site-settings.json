@@ -1,7 +1,13 @@
 {
   "createdAt": "2026-10-27T11:50:51.768Z",
-  "updatedAt": "2026-10-30T12:49:38.250Z",
+  "updatedAt": "2026-10-30T12:59:12.034Z",
   "publishedAt": "2026-10-27T11:50:58.325Z",
-  "revisedAt": "2026-10-30T12:49:38.250Z",
-  "heroDescription": "イラストレーター Otuki. のポートフォリオサイトです。\nCMSから説明文を更新できるかテストしています。"
+  "revisedAt": "2026-10-30T12:59:12.034Z",
+  "heroDescription": "イラストレーター Otuki. のポートフォリオサイトです。\nCMSから説明文を更新できるかテストしています。",
+  "profileImage": {
+    "url": "https://images.microcms-assets.io/assets/654c69b592c8413aab36fa75a061cc29/668dbd64e5ea4c4980e7408138b64a73/133900385010619290.jpg",
+    "height": 2160,
+    "width": 3840
+  },
+  "profileText": "テストテスト"
 }
