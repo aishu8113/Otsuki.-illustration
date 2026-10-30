@@ -912,3 +912,25 @@ body.lightbox-open { overflow: hidden; }
 .price-item-amount { flex-shrink: 0; color: var(--navy); font-size: 13px; font-weight: 600; text-align: right; white-space: nowrap; }
 .price-skeb-link { display: inline-block; margin-top: 16px; color: var(--navy); border-bottom: 1px solid var(--accent); font-size: 12px; }
 .price-skeb-link:hover { color: var(--accent); }
+
+/* PC版では改行しない */
+.sp-only {
+  display: none;
+}
+
+/* スマホ版のみ改行する */
+@media screen and (max-width: 600px) {
+  .sp-only {
+    display: inline;
+  }
+}
+
+.pc-only {
+  display: inline;
+}
+
+@media screen and (max-width: 600px) {
+  .pc-only {
+    display: none;
+  }
+}
