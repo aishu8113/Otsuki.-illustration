@@ -2,35 +2,22 @@
 (() => {
   const $ = (selector) => document.querySelector(selector);
   const setText = (selector, value) => {
-  const el = $(selector);
-  if (!el || typeof value !== 'string') return;
+    const el = $(selector);
+    if (!el || typeof value !== 'string') return;
 
-  const parts = value.split('[sp]');
+    const parts = value.split(/(\[sp\]|\[pc\])/);
+    el.replaceChildren();
 
-  el.replaceChildren();
-
-  parts.forEach((part, index) => {
-    if (index > 0) {
-      const br = document.createElement('br');
-      br.className = 'sp-only';
-      el.appendChild(br);
-    }
-
-    el.appendChild(document.createTextNode(part));
-  });
-};
-
-  /* PC版だけ改行する */
-.pc-only {
-  display: inline;
-}
-
-@media screen and (max-width: 600px) {
-  .pc-only {
-    display: none;
-  }
-}
-  
+    parts.forEach((part) => {
+      if (part === '[sp]' || part === '[pc]') {
+        const br = document.createElement('br');
+        br.className = part === '[sp]' ? 'sp-only' : 'pc-only';
+        el.appendChild(br);
+      } else {
+        el.appendChild(document.createTextNode(part));
+      }
+    });
+  };
   const setLink = (selector, value) => {
     const el = $(selector);
     if (!el || typeof value !== 'string' || !value.trim()) return;
@@ -320,14 +307,3 @@
     try { await job(); } catch (error) { console.error(`CMS ${name} 読み込みエラー:`, error); }
   }));
 })();
-
-/* スマホ版だけ改行する */
-.sp-only {
-  display: none;
-}
-
-@media screen and (max-width: 600px) {
-  .sp-only {
-    display: inline;
-  }
-}
