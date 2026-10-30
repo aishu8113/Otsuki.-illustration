@@ -54,11 +54,26 @@
       worksDescription: '#works .section-heading > p:last-child',
       activityDesc: '#journal .section-heading > p:last-child',
       blogsDescription: '#blog .section-heading > p:last-child',
-      priceNote: '.price-panel .note', requestStatus: '.status-label',
+      priceNote: '.price-panel .note',
       requestDescription: '.status-panel > p:not(.status-label)',
       contactDescription: '#contact-description'
     };
     for (const [field, selector] of Object.entries(fields)) setText(selector, data[field]);
+    // セレクトフィールド（配列）と従来のテキストフィールドの両方に対応する。
+    const statusElement = $('.status-label');
+    if (statusElement) {
+      const rawStatus = Array.isArray(data.requestStatus)
+        ? data.requestStatus[0]
+        : data.requestStatus;
+      const status = typeof rawStatus === 'string' ? rawStatus.trim() : '';
+      if (status) {
+        const isStopped = status.includes('停止');
+        statusElement.textContent = isStopped
+          ? '● 現在、受付停止中'
+          : '● お仕事受付中';
+        statusElement.style.color = isStopped ? '#e57373' : '#66bb6a';
+      }
+    }
     const profileImage = imageURL(data.profileImage);
     if (profileImage && $('.profile-image img')) $('.profile-image img').src = profileImage;
     for (const [field, selector] of Object.entries({
