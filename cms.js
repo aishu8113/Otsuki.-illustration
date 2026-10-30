@@ -56,7 +56,7 @@
       blogsDescription: '#blog .section-heading > p:last-child',
       priceNote: '.price-panel .note', requestStatus: '.status-label',
       requestDescription: '.status-panel > p:not(.status-label)',
-      contactDescription: '#contact > p:not(.english-title)'
+      contactDescription: '#contact-description'
     };
     for (const [field, selector] of Object.entries(fields)) setText(selector, data[field]);
     const profileImage = imageURL(data.profileImage);
@@ -65,6 +65,10 @@
       xUrl: '#sns-x', instagramUrl: '#sns-instagram',
       youtubeUrl: '#sns-youtube', skebUrl: '#sns-skeb'
     })) setLink(selector, data[field]);
+    setLink('#price-skeb-link', data.skebUrl);
+    // お問い合わせボタンも同じCMSのSNSリンク設定で更新する
+    setLink('#contact-skeb', data.skebUrl);
+    setLink('#contact-x', data.xUrl);
   }
   function renderList(selector, entries, renderItem) {
     const container = $(selector);
@@ -198,9 +202,11 @@
   }
   function renderPrice(item) {
     const row = make('div', 'price-row');
-    row.append(make('span', '', item.title || 'メニュー'));
-    row.append(make('span', '', item.price || '要相談'));
-    if (item.description) row.title = item.description;
+    const main = make('div', 'price-item');
+    main.append(make('span', 'price-item-title', item.title || 'メニュー'));
+    if (item.description) main.append(make('small', 'price-item-description', item.description));
+    row.append(main);
+    row.append(make('span', 'price-item-amount', item.price || '要相談'));
     return row;
   }
   async function loadList(filename, selector, renderItem, sortFn) {
@@ -213,17 +219,20 @@
   async function loadPrices() {
     const data = await getJSON('prices');
     if (!Array.isArray(data.contents)) throw new Error('prices: contentsが配列ではありません');
-    const panel = $('.price-panel');
-    if (!panel) return;
-    panel.querySelectorAll('.price-row').forEach((row) => row.remove());
-    const note = panel.querySelector('.note');
-    const items = [...data.contents].sort((a, b) => (Number(a.order) || 999999) - (Number(b.order) || 999999));
+    const list = $('#price-list');
+    if (!list) return;
+    const items = [...data.contents].sort((a, b) => {
+      const order = (item) => item.order === '' || item.order == null ? 999999 : Number(item.order);
+      return order(a) - order(b);
+    });
+    list.replaceChildren();
     if (!items.length) {
-      panel.insertBefore(make('p', 'cms-empty', '料金はお問い合わせください。'), note);
+      list.append(make('p', 'cms-empty', '料金はSkebでご確認ください。'));
     } else {
-      items.forEach((item) => panel.insertBefore(renderPrice(item), note));
+      items.forEach((item) => list.append(renderPrice(item)));
     }
   }
+
   // 作品をクリックした際の拡大表示。画像全体が見えるよう contain で表示する。
   let lastFocusedElement = null;
   function closeWorkLightbox() {

@@ -73,26 +73,36 @@
 <section class="section section-soft" id="price">
 <div class="section-heading"><p class="english-title">Price &amp; Request</p><h2>料金表・ご依頼について</h2></div>
 <div class="price-layout">
-<div class="price-panel"><h3>料金の目安</h3>
-<div class="price-row"><span>アイコンイラスト</span><span>3,000円〜</span></div>
-<div class="price-row"><span>一枚絵・カラー</span><span>8,000円〜</span></div>
-<div class="price-row"><span>キャラクターデザイン</span><span>10,000円〜</span></div>
-<p class="note">※料金は仮の例です。公開前に実際の料金に変更してください。</p>
+<div class="price-panel"><h3>Skeb おまかせ金額の目安</h3>
+<div class="price-list" id="price-list">
+<div class="price-row"><span>イラスト</span><span>¥8,000</span></div>
+<div class="price-row"><span>アドバイス</span><span>¥500</span></div>
+</div>
+<p class="note">※金額は目安です。最新の受付条件・金額はSkebでご確認ください。</p>
+<a class="price-skeb-link" id="price-skeb-link" href="https://skeb.jp/@Otuki_desu" target="_blank" rel="noopener noreferrer">Skebで依頼内容を確認する ↗</a>
 </div>
 <div class="status-panel"><h3>現在の依頼受付状況</h3><p class="status-label">● お仕事募集中</p><p>イラスト制作のご相談を受け付けています。</p><a class="button" href="#contact">依頼について相談する →</a></div>
 </div>
 </section>
-<!-- お問い合わせ・依頼フォーム -->
+<!-- ご依頼・お問い合わせ：Skebをメインに、その他の相談はXへ -->
 <section class="section contact-section" id="contact">
-<p class="english-title">Contact</p><h2>お仕事のご依頼・ご相談</h2><p>ご依頼やご相談はこちらからお問い合わせください。</p>
-<form class="contact-form">
-<label for="name">お名前 *</label><input id="name" name="name" placeholder="お名前を入力" required type="text"/>
-<label for="email">メールアドレス *</label><input id="email" name="email" placeholder="example@email.com" required type="email"/>
-<label for="type">ご依頼内容</label><select id="type" name="type"><option value="">選択してください</option><option>アイコンイラスト</option><option>一枚絵・カラー</option><option>キャラクターデザイン</option><option>その他</option></select>
-<label for="budget">ご予算</label><input id="budget" name="budget" placeholder="例：10,000円程度" type="text"/>
-<label for="message">お問い合わせ内容 *</label><textarea id="message" name="message" placeholder="ご依頼内容や納期などをご記入ください。" required rows="6"></textarea>
-<button class="button" onclick="alert('このフォームは見た目のサンプルです。送信機能はまだ設定されていません。')" type="button">送信する →</button>
-</form>
+  <p class="english-title">Contact</p>
+  <h2>お仕事のご依頼・ご相談</h2>
+  <p id="contact-description">イラスト・Live2Dのご依頼はSkebから。その他のご質問やご相談はXのDMへどうぞ。</p>
+  <div class="contact-options">
+    <div class="contact-option contact-option-primary">
+      <p class="contact-option-label">ILLUSTRATION / Live2D</p>
+      <h3>Skebで依頼する</h3>
+      <p>イラスト制作やLive2Dの軽いアニメーションのご依頼はこちらから。</p>
+      <a class="contact-action contact-action-primary" id="contact-skeb" href="https://skeb.jp/@Otuki_desu" target="_blank" rel="noopener noreferrer">Skebで依頼する ↗</a>
+    </div>
+    <div class="contact-option">
+      <p class="contact-option-label">QUESTIONS / CONTACT</p>
+      <h3>XのDMでお問い合わせ</h3>
+      <p>お仕事に関するご質問や、その他のご相談はこちらから。</p>
+      <a class="contact-action contact-action-secondary" id="contact-x" href="https://x.com/Otuki_desu" target="_blank" rel="noopener noreferrer">Xでお問い合わせ ↗</a>
+    </div>
+  </div>
 </section>
 </main>
 <!-- フッター -->

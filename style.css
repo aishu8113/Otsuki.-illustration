@@ -836,3 +836,79 @@ body.lightbox-open { overflow: hidden; }
     .activity-detail-inner { padding: 44px 18px 24px; }
     .activity-detail-body { font-size: 13px; }
 }
+
+
+/* ご依頼・お問い合わせ：Skebメイン、XのDMサブ */
+.contact-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 32px;
+    max-width: 960px;
+}
+.contact-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 12px;
+    background: rgba(255,255,255,.06);
+}
+.contact-option-primary {
+    border-color: rgba(255,255,255,.58);
+    background: rgba(255,255,255,.12);
+}
+.contact-option-label {
+    margin-bottom: 10px;
+    color: #c6c8d4;
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: .12em;
+}
+.contact-option h3 {
+    margin-bottom: 12px;
+    color: #f8f7f4;
+    font-size: 19px;
+}
+.contact-option > p:not(.contact-option-label) {
+    margin-bottom: 24px;
+    font-size: 13px;
+    line-height: 1.8;
+}
+.contact-action {
+    display: inline-block;
+    margin-top: auto;
+    padding: 12px 22px;
+    border: 1px solid #f8f7f4;
+    border-radius: 30px;
+    font-size: 13px;
+    line-height: 1.5;
+    transition: background .2s, color .2s;
+}
+.contact-action-primary {
+    background: #f8f7f4;
+    color: var(--navy);
+}
+.contact-action-primary:hover { background: #e2e3ed; }
+.contact-action-secondary { color: #f8f7f4; }
+.contact-action-secondary:hover { background: #f8f7f4; color: var(--navy); }
+.contact-action:focus-visible { outline: 3px solid #f8f7f4; outline-offset: 4px; }
+#contact-description { white-space: pre-line; }
+@media (max-width: 600px) {
+    .contact-options { grid-template-columns: 1fr; gap: 16px; }
+    .contact-option { padding: 22px 18px; }
+    .contact-option h3 { font-size: 17px; }
+    .contact-action { width: 100%; text-align: center; }
+}
+
+/* Skebの料金表：項目・価格・説明文をCMSから表示 */
+.price-list { margin-top: 12px; }
+.price-list .price-row { align-items: flex-start; }
+.price-item { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.price-item-title { color: var(--navy); font-size: 13px; }
+.price-item-description { color: var(--muted); font-size: 11px; line-height: 1.65; white-space: pre-line; }
+.price-item-amount { flex-shrink: 0; color: var(--navy); font-size: 13px; font-weight: 600; text-align: right; white-space: nowrap; }
+.price-skeb-link { display: inline-block; margin-top: 16px; color: var(--navy); border-bottom: 1px solid var(--accent); font-size: 12px; }
+.price-skeb-link:hover { color: var(--accent); }
