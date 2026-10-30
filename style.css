@@ -793,3 +793,46 @@ section {
 }
 .work-lightbox-close:focus-visible { outline: 2px solid var(--navy); }
 body.lightbox-open { overflow: hidden; }
+/* 活動記録：カードをクリックすると本文を表示 */
+.activity-card { padding: 0; overflow: hidden; }
+.activity-card-trigger {
+    display: block; width: 100%; padding: 14px; border: 0;
+    background: transparent; color: inherit; font: inherit;
+    text-align: left; cursor: pointer;
+}
+.activity-card-trigger:focus-visible { outline: 3px solid var(--navy); outline-offset: -4px; }
+.activity-card-trigger .image-box { aspect-ratio: 16 / 7; min-height: 0; margin-bottom: 12px; }
+.activity-card-trigger .date { margin-bottom: 4px; color: var(--muted); font-size: 11px; }
+.activity-card-trigger h3 { margin-bottom: 6px; }
+.activity-card-trigger > p:last-child { margin-bottom: 0; color: var(--muted); font-size: 12px; }
+.activity-detail {
+    position: fixed; inset: 0; width: min(92vw, 760px);
+    max-width: 92vw; max-height: min(90vh, 920px);
+    margin: auto; padding: 0; overflow: auto;
+    border: 1px solid var(--line); border-radius: 12px;
+    background: var(--background); color: var(--text);
+}
+.activity-detail::backdrop { background: rgba(20, 23, 35, .76); }
+.activity-detail-inner { position: relative; padding: 44px clamp(20px, 5vw, 48px) 40px; }
+.activity-detail-close {
+    position: absolute; top: 8px; right: 16px; border: 0;
+    background: transparent; color: var(--navy); font-size: 32px;
+    line-height: 1.4; cursor: pointer;
+}
+.activity-detail-close:focus-visible { outline: 2px solid var(--navy); }
+.activity-detail-date { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+.activity-detail-title { color: var(--navy); font-size: clamp(20px, 3vw, 28px); line-height: 1.5; }
+.activity-detail-image { display: block; width: 100%; max-height: 420px; margin: 20px 0 28px; object-fit: contain; border-radius: 6px; }
+.activity-detail-image[hidden] { display: none; }
+.activity-detail-body { overflow-wrap: anywhere; font-size: 14px; line-height: 2; }
+.activity-detail-body p { margin: 0 0 1em; }
+.activity-detail-body blockquote { margin: 1.2em 0; padding: 10px 20px; border-left: 3px solid var(--accent); background: var(--soft-blue); }
+.activity-detail-body img { display: block; max-width: 100%; height: auto; margin: 16px auto; }
+.activity-detail-body a { color: var(--navy); text-decoration: underline; }
+@media (max-width: 600px) {
+    .activity-card-trigger { padding: 12px; }
+    .activity-card-trigger .image-box { aspect-ratio: 16 / 8; }
+    .activity-detail { width: 96vw; max-width: 96vw; max-height: 92vh; }
+    .activity-detail-inner { padding: 44px 18px 24px; }
+    .activity-detail-body { font-size: 13px; }
+}

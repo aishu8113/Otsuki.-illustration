@@ -102,6 +102,97 @@
     card.append(make('p', '', item.description || ''));
     return card;
   }
+  // 活動記録はカード全体をボタンにして、詳細をダイアログ表示する。
+  function renderActivity(item) {
+    const card = renderArticle(item);
+    card.classList.add('activity-card');
+    const button = make('button', 'activity-card-trigger');
+    button.type = 'button';
+    button.setAttribute('aria-label', `${item.title || '活動記録'}の本文を読む`);
+    while (card.firstChild) button.append(card.firstChild);
+    card.append(button);
+    button.addEventListener('click', () => openActivityDetail(item));
+    return card;
+  }
+  // microCMSのリッチテキストを許可したタグだけで描画（危険なHTMLは挿入しない）。
+  function safeRichText(html) {
+    const fragment = document.createDocumentFragment();
+    if (typeof html !== 'string') return fragment;
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
+    const allowed = new Set(['P','BR','STRONG','B','EM','I','U','S','BLOCKQUOTE','UL','OL','LI','H2','H3','H4','HR','A','IMG','FIGURE','FIGCAPTION','CODE','PRE']);
+    function clean(node, parent) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        parent.append(document.createTextNode(node.textContent));
+        return;
+      }
+      if (node.nodeType !== Node.ELEMENT_NODE) return;
+      const tag = node.tagName;
+      if (!allowed.has(tag)) {
+        // script/style/svg等の要素は中身も含めて除去
+        if (['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','SVG','MATH','FORM','INPUT','BUTTON','TEMPLATE'].includes(tag)) return;
+        Array.from(node.childNodes).forEach(child => clean(child, parent));
+        return;
+      }
+      const el = document.createElement(tag.toLowerCase());
+      if (tag === 'A') {
+        try {
+          const href = new URL(node.getAttribute('href') || '', location.href);
+          if (['http:', 'https:'].includes(href.protocol)) {
+            el.href = href.href;
+            el.target = '_blank';
+            el.rel = 'noopener noreferrer';
+          }
+        } catch (_) { /* URLなし */ }
+      }
+      if (tag === 'IMG') {
+        try {
+          const src = new URL(node.getAttribute('src') || '');
+          if (src.protocol !== 'https:') return;
+          el.src = src.href;
+          el.alt = node.getAttribute('alt') || '';
+          el.loading = 'lazy';
+        } catch (_) { return; }
+      }
+      Array.from(node.childNodes).forEach(child => clean(child, el));
+      parent.append(el);
+    }
+    Array.from(parsed.body.childNodes).forEach(node => clean(node, fragment));
+    return fragment;
+  }
+  let lastActivityFocus = null;
+  function openActivityDetail(item) {
+    const dialog = $('#activity-detail');
+    if (!dialog) return;
+    dialog.querySelector('.activity-detail-title').textContent = item.title || '無題';
+    dialog.querySelector('.activity-detail-date').textContent = formatDate(item.date || item.publishedAt);
+    const picture = dialog.querySelector('.activity-detail-image');
+    const url = imageURL(item.image);
+    picture.hidden = !url;
+    if (url) {
+      picture.src = url;
+      picture.alt = item.title || '活動記録の画像';
+    } else {
+      picture.removeAttribute('src');
+    }
+    const body = dialog.querySelector('.activity-detail-body');
+    body.replaceChildren();
+    if (item.body) body.append(safeRichText(item.body));
+    else body.append(make('p', '', item.description || '本文はありません。'));
+    lastActivityFocus = document.activeElement;
+    dialog.showModal();
+    document.body.classList.add('lightbox-open');
+    dialog.querySelector('.activity-detail-close').focus();
+  }
+  function initActivityDetail() {
+    const dialog = $('#activity-detail');
+    if (!dialog) return;
+    dialog.querySelector('.activity-detail-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('lightbox-open');
+      if (lastActivityFocus && lastActivityFocus.isConnected) lastActivityFocus.focus();
+    });
+  }
   function renderPrice(item) {
     const row = make('div', 'price-row');
     row.append(make('span', '', item.title || 'メニュー'));
@@ -130,7 +221,6 @@
       items.forEach((item) => panel.insertBefore(renderPrice(item), note));
     }
   }
-
   // 作品をクリックした際の拡大表示。画像全体が見えるよう contain で表示する。
   let lastFocusedElement = null;
   function closeWorkLightbox() {
@@ -164,12 +254,13 @@
     });
   }
   initWorkLightbox();
-
+  initActivityDetail();
+  const newestFirst = (a,b) => String(b.date || b.publishedAt || '').localeCompare(String(a.date || a.publishedAt || ''));
   const jobs = [
     ['site-settings', loadSettings],
     ['works', () => loadList('works', '#works .works-grid', renderWork)],
-    ['activities', () => loadList('activities', '#journal .article-grid', renderArticle, (a,b) => String(b.date || b.publishedAt || '').localeCompare(String(a.date || a.publishedAt || '')))],
-    ['blogs', () => loadList('blogs', '#blog .article-grid', renderArticle, (a,b) => String(b.date || b.publishedAt || '').localeCompare(String(a.date || a.publishedAt || '')))],
+    ['activities', () => loadList('activities', '#journal .article-grid', renderActivity, newestFirst)],
+    ['blogs', () => loadList('blogs', '#blog .article-grid', renderArticle, newestFirst)],
     ['prices', loadPrices]
   ];
   Promise.allSettled(jobs.map(async ([name, job]) => {
