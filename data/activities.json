@@ -1,6 +1,23 @@
 {
-  "contents": [],
-  "totalCount": 0,
+  "contents": [
+    {
+      "id": "0wd3uy6oc",
+      "createdAt": "2026-10-30T13:07:04.734Z",
+      "updatedAt": "2026-10-30T13:07:04.734Z",
+      "publishedAt": "2026-10-30T13:07:04.734Z",
+      "revisedAt": "2026-10-30T13:07:04.734Z",
+      "title": "活動記録テスト",
+      "image": {
+        "url": "https://images.microcms-assets.io/assets/654c69b592c8413aab36fa75a061cc29/3b26308ae89749f0adbdc310324920ea/133828428524660027.jpg",
+        "height": 2160,
+        "width": 3840
+      },
+      "date": "2026-10-30T13:00:00.000Z",
+      "description": "新しいイラストを制作しました！今回は月夜をテーマにした作品です。",
+      "body": "<blockquote><p>今回は月夜をテーマにしたオリジナルイラストを制作しました。</p><p>特にこだわったのは、月明かりによる柔らかい光の表現です。</p><p>制作には約10時間かかりましたが、満足のいく仕上がりになりました！</p></blockquote>"
+    }
+  ],
+  "totalCount": 1,
   "offset": 0,
   "limit": 100
 }
