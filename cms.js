@@ -99,20 +99,23 @@
     card.append(makeImage(item.image, item.title));
     card.append(make('p', 'date', formatDate(item.date || item.publishedAt)));
     card.append(make('h3', '', item.title || '無題'));
-    card.append(make('p', '', item.description || ''));
+    card.append(make('p', '', item.description || item.descriptio || ''));
     return card;
   }
   // 活動記録はカード全体をボタンにして、詳細をダイアログ表示する。
-  function renderActivity(item) {
+  function renderActivity(item, kind = '活動記録') {
     const card = renderArticle(item);
     card.classList.add('activity-card');
     const button = make('button', 'activity-card-trigger');
     button.type = 'button';
-    button.setAttribute('aria-label', `${item.title || '活動記録'}の本文を読む`);
+    button.setAttribute('aria-label', `${item.title || kind}の本文を読む`);
     while (card.firstChild) button.append(card.firstChild);
     card.append(button);
     button.addEventListener('click', () => openActivityDetail(item));
     return card;
+  }
+  function renderBlog(item) {
+    return renderActivity(item, 'ブログ');
   }
   // microCMSのリッチテキストを許可したタグだけで描画（危険なHTMLは挿入しない）。
   function safeRichText(html) {
@@ -177,7 +180,7 @@
     const body = dialog.querySelector('.activity-detail-body');
     body.replaceChildren();
     if (item.body) body.append(safeRichText(item.body));
-    else body.append(make('p', '', item.description || '本文はありません。'));
+    else body.append(make('p', '', item.description || item.descriptio || '本文はありません。'));
     lastActivityFocus = document.activeElement;
     dialog.showModal();
     document.body.classList.add('lightbox-open');
@@ -260,7 +263,7 @@
     ['site-settings', loadSettings],
     ['works', () => loadList('works', '#works .works-grid', renderWork)],
     ['activities', () => loadList('activities', '#journal .article-grid', renderActivity, newestFirst)],
-    ['blogs', () => loadList('blogs', '#blog .article-grid', renderArticle, newestFirst)],
+    ['blogs', () => loadList('blogs', '#blog .article-grid', renderBlog, newestFirst)],
     ['prices', loadPrices]
   ];
   Promise.allSettled(jobs.map(async ([name, job]) => {
