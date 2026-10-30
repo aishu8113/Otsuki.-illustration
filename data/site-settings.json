@@ -1,8 +1,8 @@
 {
   "createdAt": "2026-10-27T11:50:51.768Z",
-  "updatedAt": "2026-10-30T13:57:22.338Z",
+  "updatedAt": "2026-10-30T13:58:29.547Z",
   "publishedAt": "2026-10-27T11:50:58.325Z",
-  "revisedAt": "2026-10-30T13:57:22.338Z",
+  "revisedAt": "2026-10-30T13:58:29.547Z",
   "heroDescription": "イラストレーター Otuki. のポートフォリオサイトです。\nCMSから説明文を更新できるかテストしています。",
   "profileImage": {
     "url": "https://images.microcms-assets.io/assets/654c69b592c8413aab36fa75a061cc29/668dbd64e5ea4c4980e7408138b64a73/133900385010619290.jpg",
@@ -12,6 +12,6 @@
   "profileText": "テストテスト",
   "requestDescription": "制作スケジュールの都合により、新規のご依頼受付を一時停止しています。",
   "requestStatus": [
-    "● お仕事受付中"
+    "● 現在、受付停止中"
   ]
 }
