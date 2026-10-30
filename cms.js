@@ -71,7 +71,7 @@
         statusElement.textContent = isStopped
           ? '● 現在、受付停止中'
           : '● お仕事受付中';
-        statusElement.style.color = isStopped ? '#e57373' : '#66bb6a';
+        statusElement.style.color = isStopped ? '#d45555' : '#509953';
       }
     }
     const profileImage = imageURL(data.profileImage);
