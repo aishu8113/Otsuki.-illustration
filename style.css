@@ -934,3 +934,25 @@ body.lightbox-open { overflow: hidden; }
     display: none;
   }
 }
+
+/* スマホ版だけ改行する */
+.sp-only {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .sp-only {
+    display: inline;
+  }
+}
+
+/* パソコン版だけ改行する */
+.pc-only {
+  display: inline;
+}
+
+@media screen and (max-width: 600px) {
+  .pc-only {
+    display: none;
+  }
+}
