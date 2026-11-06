@@ -1,126 +1,30 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Otuki. illustration</title>
-<link href="style.css" rel="stylesheet"/>
-<script defer src="cms.js"></script>
-</head>
-<body>
-<!-- ヘッダー -->
-<header class="header">
-<a class="logo" href="#">☾ Otuki.</a>
-<nav>
-<a href="#works">作品</a>
-<a href="#journal">活動記録</a>
-<a href="#blog">ブログ</a>
-<a href="#price">料金表</a>
-<a href="#contact">お問い合わせ</a>
-</nav>
-</header>
-<main>
-<!-- メインビジュアル -->
-<section class="hero">
-<p class="sub-title">ILLUSTRATION PORTFOLIO</p>
-<h1 id="hero-title">月のように、<br/>静かに心に残る作品を。</h1>
-<p class="hero-text">イラストレーター Otuki. のポートフォリオサイトです。<br/>日々の制作や作品について発信しています。</p>
-<a class="button" href="#works">作品を見る →</a>
-<span class="moon-decoration">☾</span>
+<!doctype html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1531"><meta name="description" content="Otuki. Illustration & Live2D — 夜の森に灯る、小さな物語。作品集とご依頼のご案内。"><title>Otuki. | Illustration & Live2D</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="data.js" defer></script><script src="cms-bridge.js" defer></script><script src="app.js" defer></script></head><body>
+<div class="world-bg" aria-hidden="true"></div><div class="fireflies" id="fireflies" aria-hidden="true"></div>
+<main><section class="hero hero-full" aria-labelledby="hero-title">
+<img class="hero-cover" id="hero-image" src="img/KV/KV_01.png" alt="ファーストビューのメインイラスト" fetchpriority="high">
+<div class="hero-cover-shade" aria-hidden="true"></div>
+<header class="header hero-header" id="top"><a class="logo" href="index.html" aria-label="Otuki. ホーム">O<span>tuki.</span><i>✧</i></a><button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">☰</button><nav class="nav" aria-label="メインナビゲーション"><a href="#works">Works</a><a href="#movie">Movie / Live2D</a><a href="#commission">Commission</a><a href="contact.html" class="nav-contact">Contact <span>↗</span></a></nav></header>
+<h1 class="visually-hidden" id="hero-title">Otuki. Illustration &amp; Live2D</h1>
+<a class="scroll-guide" href="#works">SCROLL TO EXPLORE <span>↓</span></a>
+
 </section>
-<!-- プロフィール -->
-<section class="profile section">
-<div class="profile-image image-box"><img alt="アイコン" src="img/01_img.png"/></div>
-<div class="profile-text">
-<p class="english-title">About me</p>
-<h2>プロフィール</h2>
-<p id="profile-description">illustration / Live2D おつきです🌕 20↑ AI学習及び生成はご依頼も含め全て禁止<br/>ご依頼はDMまでお願いします🙌🏻 skebではイラスト・Live2Dの軽いアニメーションを受け付けてます</p>
-<p class="profile-links">
-<a href="https://x.com/Otuki_desu" id="sns-x" rel="noopener noreferrer" target="_blank">X</a>
-<a href="https://www.instagram.com/otuki_desu/" id="sns-instagram" rel="noopener noreferrer" target="_blank">Instagram</a>
-<a href="https://www.youtube.com/@otuki_desu" id="sns-youtube" rel="noopener noreferrer" target="_blank">youtube</a>
-<a href="https://skeb.jp/@Otuki_desu" id="sns-skeb" rel="noopener noreferrer" target="_blank">Skeb</a>
-</p>
-</div>
-</section>
-<!-- 作品ギャラリー -->
-<section class="section" id="works">
-<div class="section-heading"><p class="english-title">Works</p><h2>作品ギャラリー</h2><p>これまでに制作したイラストを<br class="sp-only">掲載しています。</p></div>
-<div class="works-grid">
-<article class="work-card"><div class="image-box">作品画像 01</div><h3>作品タイトル</h3><p>作品についての説明</p></article>
-<article class="work-card"><div class="image-box">作品画像 02</div><h3>作品タイトル</h3><p>作品についての説明</p></article>
-<article class="work-card"><div class="image-box">作品画像 03</div><h3>作品タイトル</h3><p>作品についての説明</p></article>
-<article class="work-card"><div class="image-box">作品画像 04</div><h3>作品タイトル</h3><p>作品についての説明</p></article>
-</div>
-</section>
-<!-- 活動記録 -->
-<section class="section section-soft" id="journal">
-<div class="section-heading"><p class="english-title">Journal</p><h2>活動記録</h2><p>制作状況やイベント参加など、<br class="sp-only">日々の活動を記録します。</p></div>
-<div class="article-grid">
-<article class="article-card"><div class="image-box">活動記録の画像</div><p class="date">2026.10.01</p><h3>新しいイラストを制作しました</h3><p>今回の制作について紹介します。</p></article>
-<article class="article-card"><div class="image-box">活動記録の画像</div><p class="date">2026.09.20</p><h3>イベントに参加しました</h3><p>イベントでの出来事を記録します。</p></article>
-</div>
-</section>
-<!-- ブログ -->
-<section class="section" id="blog">
-<div class="section-heading"><p class="english-title">Blog</p><h2>ブログ</h2><p>イラストのことや日常について綴っています。</p></div>
-<div class="article-grid">
-<article class="article-card"><div class="image-box">ブログの画像</div><p class="date">2026.10.05</p><h3>最近のお気に入り</h3><p>最近の制作や日常について。</p></article>
-<article class="article-card"><div class="image-box">ブログの画像</div><p class="date">2026.09.15</p><h3>イラスト制作の道具</h3><p>普段使っている道具を紹介します。</p></article>
-</div>
-</section>
-<!-- 料金表・受付状況 -->
-<section class="section section-soft" id="price">
-<div class="section-heading"><p class="english-title">Price &amp; Request</p><h2>料金表・ご依頼について</h2></div>
-<div class="price-layout">
-<div class="price-panel"><h3>Skeb おまかせ金額の目安</h3>
-<div class="price-list" id="price-list">
-<div class="price-row"><span>イラスト</span><span>¥8,000</span></div>
-<div class="price-row"><span>アドバイス</span><span>¥500</span></div>
-</div>
-<p class="note">※金額は目安です。<br class="sp-only">最新の受付条件・金額は<br class="sp-only">Skebでご確認ください。</p>
-<a class="price-skeb-link" id="price-skeb-link" href="https://skeb.jp/@Otuki_desu" target="_blank" rel="noopener noreferrer">Skebで依頼内容を確認する ↗</a>
-</div>
-<div class="status-panel"><h3>現在の依頼受付状況</h3><p class="status-label">● お仕事募集中</p><p>イラスト制作のご相談を受け付けています。</p><a class="button" href="#contact">依頼について相談する →</a></div>
-</div>
-</section>
-<!-- ご依頼・お問い合わせ：Skebをメインに、その他の相談はXへ -->
-<section class="section contact-section" id="contact">
-  <p class="english-title">Contact</p>
-  <h2>お仕事のご依頼・ご相談</h2>
-  <p id="contact-description">イラストのご依頼はSkebから。Live2Dやその他のご質問に関するご相談はXのDMへどうぞ。</p>
-  <div class="contact-options">
-    <div class="contact-option contact-option-primary">
-      <p class="contact-option-label">ILLUSTRATION</p>
-      <h3>Skebで依頼する</h3>
-      <p>イラスト制作のご依頼はこちらから。</p>
-      <a class="contact-action contact-action-primary" id="contact-skeb" href="https://skeb.jp/@Otuki_desu" target="_blank" rel="noopener noreferrer">Skebで依頼する ↗</a>
+<div class="between" aria-hidden="true"><span>✧</span><span class="between-line"></span><span>✦</span><span class="between-line"></span><span>✧</span></div>
+<section class="section works featured-works" id="works" aria-labelledby="featured-title">
+  <div class="section-heading"><h2 id="featured-title">Works</h2><div class="heading-ornament" aria-hidden="true">✧</div></div>
+  <div class="exhibition exhibition-peek" aria-roledescription="カルーセル" aria-label="注目作品">
+    <button class="exhibition-arrow exhibition-prev" type="button" aria-label="前の作品">‹</button>
+    <div class="exhibition-stage" id="exhibition-stage" tabindex="0" aria-label="左右キーやスワイプで作品を切り替え">
+      <div class="exhibition-track" id="exhibition-track"></div>
     </div>
-    <div class="contact-option">
-      <p class="contact-option-label">QUESTIONS / CONTACT</p>
-      <h3>XのDMでお問い合わせ</h3>
-      <p>お仕事に関するご質問や、その他のご相談はこちらから。</p>
-      <a class="contact-action contact-action-secondary" id="contact-x" href="https://x.com/Otuki_desu" target="_blank" rel="noopener noreferrer">Xでお問い合わせ ↗</a>
-    </div>
+    <button class="exhibition-arrow exhibition-next" type="button" aria-label="次の作品">›</button>
   </div>
+  <div class="exhibition-bottom"><span id="exhibition-count" aria-live="polite">— / —</span><div class="exhibition-dots" id="exhibition-dots" aria-label="作品を選択"></div></div>
+  <div class="view-all-wrap"><a href="works.html" class="view-all">View all works <span aria-hidden="true">↗</span></a></div>
 </section>
-</main>
-<!-- フッター -->
-<footer class="footer"><a class="logo" href="#">☾ Otuki.</a><p>© 2026 Otuki. illustration</p></footer>
-<!-- 作品ギャラリー拡大表示 -->
-<dialog aria-label="作品画像の拡大表示" class="work-lightbox" id="work-lightbox">
-<button aria-label="拡大表示を閉じる" class="work-lightbox-close" type="button">×</button>
-<img alt="" class="work-lightbox-image"/>
-</dialog>
-<!-- 活動記録・ブログ共通の詳細表示 -->
-<dialog aria-labelledby="activity-detail-title" aria-label="記事の詳細表示" class="activity-detail" id="activity-detail">
-<div class="activity-detail-inner">
-<button aria-label="記事を閉じる" class="activity-detail-close" type="button">×</button>
-<p class="activity-detail-date"></p>
-<h2 class="activity-detail-title" id="activity-detail-title"></h2>
-<img class="activity-detail-image" alt="" hidden/>
-<div class="activity-detail-body"></div>
-</div>
-</dialog>
-</body>
-</html>
+<section class="section movie" id="movie"><div class="section-heading"><h2>Movie <span class="heading-light">/ Live2D</span></h2><div class="heading-ornament" aria-hidden="true">✧</div></div><div class="movie-grid" id="movie-grid"></div></section>
+
+<section class="section commission" id="commission"><div class="section-heading"><h2>Commission</h2><div class="heading-ornament" aria-hidden="true">✧</div></div><div class="service-list"><article class="service"><span class="service-icon">✧</span><h3>Illustration</h3></article><article class="service"><span class="service-icon">☾</span><h3>Live2D</h3></article><article class="service"><span class="service-icon">✦</span><h3>Character Design</h3></article></div><p class="availability" id="availability">✦ ご依頼受付中</p></section>
+<section class="ending" aria-label="お問い合わせへのご案内"><a class="gold-btn large" href="contact.html">Contact <span>↗</span></a></section></main>
+<footer class="footer"><a class="logo footer-logo" href="#top">Otuki.<i>✧</i></a><div id="social-links" class="social-links"></div><small>© <span id="year"></span> Otuki. All rights reserved.</small></footer>
+<dialog class="art-modal" id="art-modal" aria-labelledby="modal-title"><button type="button" class="close-modal" id="close-modal" aria-label="閉じる">×</button><div class="modal-layout"><img id="modal-image" alt=""><div class="modal-copy"><p class="eyebrow" id="modal-category"></p><h2 id="modal-title"></h2><p id="modal-description"></p><a href="contact.html" class="outline-btn">制作について相談する ↗</a></div></div></dialog>
+</body></html>
