@@ -12,7 +12,9 @@
         "height": 2160,
         "width": 3840
       },
-      "description": "拡大表示のテストです"
+      "description": "拡大表示のテストです",
+      "showOnTop": false,
+      "category": []
     },
     {
       "id": "dyukr-87r",
@@ -26,7 +28,9 @@
         "height": 2160,
         "width": 3840
       },
-      "description": "テストテキストテストテキスト"
+      "description": "テストテキストテストテキスト",
+      "showOnTop": false,
+      "category": []
     }
   ],
   "totalCount": 2,
