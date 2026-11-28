@@ -85,3 +85,200 @@ body{position:relative;isolation:isolate}
 .gallery-slide{transform:scale(.93)}
 }
 @media(prefers-reduced-motion:reduce){.gallery-slide{transition:none}.exhibition-track{transition:none!important}}
+
+
+/* ================================================================
+   Profile / Contact : 2カラム・左ビジュアル固定＋右側のみスクロール
+   現在の背景・既存の他ページのデザインは変更しない
+   ================================================================ */
+@media (min-width: 821px) {
+  body.split-page { height: 100dvh; overflow: hidden; }
+  .split-page .world-bg { position: fixed; inset: 0; width: 100%; height: 100dvh; min-height: 0; background-size: cover; }
+  .split-page .fireflies { position: fixed; inset: 0; height: 100dvh; min-height: 0; }
+}
+.split-page .split-header {
+  position: fixed; top: 0; left: 0; width: 100%; max-width: none; margin: 0;
+  height: 84px; padding: 0 4.5%; z-index: 30;
+  background: linear-gradient(180deg, rgba(4,10,27,.76), rgba(4,10,27,.26));
+  border-bottom: 1px solid rgba(232,201,146,.18);
+}
+.split-nav { display: flex; align-items: center; gap: clamp(14px,2.4vw,36px); }
+.split-nav a { font: 19px 'Cormorant Garamond', serif; letter-spacing: .05em; transition: color .2s; }
+.split-nav a:hover, .split-nav a:focus-visible { color: var(--gold); }
+.split-page .split-layout { display: grid; grid-template-columns: 50% 50%; width: 100%; max-width: none; margin: 0; height: 100dvh; min-height: 0; }
+.split-page .split-visual { position: relative; min-height: 0; height: 100%; overflow: hidden; border-right: 1px solid var(--line); background: rgba(7,16,37,.4); }
+.split-page .split-visual > img, .split-page .split-visual .split-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.split-slides { position: absolute; inset: 0; overflow: hidden; }
+.split-page .split-slide { opacity: 0; transition: opacity 1.15s ease; }
+.split-page .split-slide.is-visible { opacity: 1; }
+.split-page .split-panel { height: 100%; min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-gutter: stable; padding: 124px clamp(25px,5vw,88px) 36px; background: rgba(9,18,39,.50); }
+.split-page .contact-form-side { background: rgba(9,18,39,.50); }
+.split-page .contact-art-side > .split-slides { position: absolute; inset: 0; }
+.split-page .contact-art-side .contact-art-shade { pointer-events: none; }
+.split-page .split-visual-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg,rgba(6,13,31,.12),rgba(6,13,31,.06) 44%,rgba(6,13,31,.82)); }
+.split-page .split-visual-caption { position: absolute; left: 8%; bottom: 8%; text-shadow: 0 2px 15px rgba(0,0,0,.7); }
+.split-page .split-visual-caption span { color: var(--gold); font: 16px 'Cormorant Garamond',serif; letter-spacing: .2em; }
+.split-page .split-visual-caption p { font-size: clamp(21px,2.2vw,31px); line-height: 1.9; letter-spacing: .1em; }
+.split-page .contact-art-words { bottom: 8%; left: 8%; }
+.split-page .contact-heading h1 { font-size: clamp(55px,5vw,75px); }
+.split-panel-footer { padding: 42px 0 10px; margin-top: 60px; border-top: 1px solid var(--line); text-align: center; }
+.split-panel-footer small { display: block; font: 12px 'Cormorant Garamond',serif; color: #b5b6c5; }
+.split-panel-footer .social-links { flex-wrap: wrap; gap: 16px; }
+
+/* PROFILE : 右カラムのプロフィール / サービス / トピック */
+.profile-intro > .eyebrow { text-align: center; margin: 0; }
+.profile-intro > h1 { margin: 0; font: normal clamp(58px,5vw,76px)/1.1 'Cormorant Garamond',serif; text-align: center; color: var(--gold2); }
+.profile-intro > .jp-sub, .profile-intro > .heading-ornament { text-align: center; }
+.profile-section { margin-bottom: 72px; }
+.profile-person { display: flex; align-items: center; gap: 24px; margin: 44px 0 28px; }
+.profile-avatar { width: 112px; height: 112px; border-radius: 50%; padding: 5px; border: 1px solid var(--line); flex: 0 0 auto; background: rgba(8,16,35,.5); }
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.profile-name .eyebrow { font-size: 13px; }
+.profile-name h2 { font: italic 43px 'Cormorant Garamond',serif; color: var(--gold2); margin: 2px 0 0; }
+.profile-name p { font-size: 12px; color: #d4cbd0; margin: 1px 0; }
+.profile-about-text { border-left: 2px solid rgba(232,201,146,.55); padding-left: 18px; color: #e3dce2; font-size: 13px; line-height: 2.6; }
+.profile-section-title { text-align: center; margin-bottom: 27px; }
+.profile-section-title .eyebrow { margin: 0; }
+.profile-section-title h2 { font: normal clamp(43px,4.4vw,63px) 'Cormorant Garamond',serif; color: var(--gold2); margin: 2px 0 0; }
+.profile-section-title p { font-size: 12px; letter-spacing: .16em; color: #d1c6d0; margin: 0; }
+.profile-services { display: grid; gap: 18px; }
+.profile-service { position: relative; display: grid; grid-template-columns: minmax(110px,39%) minmax(0,1fr); border: 1px solid rgba(232,201,146,.53); border-radius: 7px; padding: 9px; background: rgba(8,17,38,.62); box-shadow: 0 16px 35px rgba(0,0,0,.16); gap: 15px; overflow: hidden; }
+.profile-service::after { content:'✧'; position:absolute; top:5px; right:13px; color:var(--gold); opacity:.65; }
+.profile-service-image { min-height: 190px; background: rgba(12,22,47,.88); border: 1px solid rgba(232,201,146,.20); overflow: hidden; }
+.profile-service-image img { width:100%; height:100%; object-fit:cover; }
+.profile-service-copy { padding: 12px 15px 12px 0; display: flex; flex-direction: column; justify-content: center; }
+.service-index, .topic-date { color:var(--gold); font: 13px 'Cormorant Garamond',serif; letter-spacing: .16em; }
+.profile-service-copy h3 { color:var(--gold2); font: normal clamp(23px,2.2vw,32px) 'Cormorant Garamond',serif; margin: 4px 0 8px; line-height:1.2; }
+.profile-service-copy p { color: #ddd6df; font-size: 11px; line-height: 2.1; margin: 0; }
+.profile-topics { border-top: 1px solid var(--line); }
+.profile-topic { padding: 18px 7px; border-bottom: 1px solid var(--line); }
+.profile-topic p { margin:4px 0 0; font-size: 12px; color: #e4dce2; }
+.profile-contact-cta { text-align:center; padding: 26px 20px 10px; }
+.profile-contact-cta p { font-size: 12px; margin: 0 0 20px; }
+
+@media(max-width: 820px) {
+  body.split-page { min-height: 100svh; height: auto; overflow-x: hidden; overflow-y: auto; }
+  .split-page .split-layout { display:block; height:auto; min-height:100svh; }
+  .split-page .split-visual { display:none; }
+  .split-page .split-panel { width:100%; height:auto; min-height:100svh; overflow:visible; scrollbar-gutter:auto; padding: 105px 6% 40px; background: rgba(9,18,39,.46); }
+  .split-page .split-header { height:74px; padding: 0 5%; background: rgba(7,15,33,.90); }
+  .split-page .split-header .logo { font-size: 38px; }
+  .split-nav { gap: clamp(10px,3vw,22px); }
+  .split-nav a { font-size: 16px; }
+  .profile-person { gap:16px; }
+  .profile-avatar { width: 88px; height: 88px; }
+  .profile-service { grid-template-columns: minmax(115px,37%) minmax(0,1fr); }
+  .profile-service-image { min-height: 155px; }
+}
+@media(max-width: 440px) {
+  .split-nav a { font-size: 15px; }
+  .profile-service { grid-template-columns: 1fr; gap: 0; }
+  .profile-service-image { min-height: 0; aspect-ratio: 16/9; }
+  .profile-service-copy { padding: 16px 13px 17px; }
+  .profile-service-copy p { font-size: 12px; }
+  .split-page .contact-heading h1 { font-size: 57px; }
+}
+@media(prefers-reduced-motion:reduce){
+  .split-page .split-slide { transition: none; }
+}
+
+
+/* ================================================================
+   全ページ共通フッター + PROFILE/CONTACT のヘッダー・フッターを右側に配置
+   ================================================================ */
+.site-footer {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 36px 22px 30px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  background: rgba(7, 15, 32, .56);
+}
+.site-footer .footer-logo { display: inline-block; font-size: 42px; }
+.site-footer .footer-social-heading {
+  margin: 6px 0 16px;
+  font: italic 18px 'Cormorant Garamond', serif;
+  letter-spacing: .16em;
+  color: var(--gold);
+}
+.site-footer .social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px 12px;
+  margin: 0 auto 23px;
+}
+.site-footer .social-link {
+  display: inline-block;
+  padding: 5px 11px;
+  border: 1px solid rgba(232,201,146,.36);
+  border-radius: 99px;
+  color: var(--gold2);
+  background: rgba(15,27,53,.58);
+  font: 14px 'Cormorant Garamond',serif;
+  letter-spacing: .04em;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.site-footer a.social-link:hover,
+.site-footer a.social-link:focus-visible {
+  border-color: var(--gold);
+  background: rgba(232,201,146,.13);
+  transform: translateY(-2px);
+}
+.site-footer .social-link.is-unset { opacity: .53; cursor: default; }
+.site-footer small { display: block; font-size: 11px; color: #b9b9c7; }
+/* スクロール領域の中でヘッダーを固定し、フッターは本文の一番下に配置 */
+.split-page .split-panel { padding: 0; }
+.split-page .split-header {
+  position: sticky;
+  top: 0;
+  left: auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  height: 84px;
+  padding: 0 clamp(18px, 2.5vw, 42px);
+  z-index: 30;
+  flex-shrink: 0;
+  background: rgba(7, 15, 33, .96);
+  backdrop-filter: blur(12px);
+}
+.split-page .split-header .logo { font-size: clamp(33px, 3.1vw, 46px); }
+.split-page .split-nav { gap: clamp(8px, 1.25vw, 24px); }
+.split-page .split-nav a { font-size: clamp(15px, 1.35vw, 19px); }
+.split-page .split-panel-inner { padding: 40px clamp(24px, 4.5vw, 78px) 18px; }
+.split-page .site-footer { padding: 38px 16px 28px; }
+@media (max-width: 820px) {
+  .split-page .split-panel { padding: 0; }
+  .split-page .split-header {
+    height: 74px;
+    padding: 0 5%;
+  }
+  .split-page .split-panel-inner { padding: 32px 6% 24px; }
+}
+@media (max-width: 440px) {
+  .split-page .split-header .logo { font-size: 34px; }
+  .split-page .split-nav a { font-size: 15px; }
+  .site-footer .social-links { gap: 8px; }
+}
+
+/* === CMS画像版: サイト背景を透かしたKVの3レイヤー === */
+.hero-full{background:transparent;isolation:isolate;min-height:620px;height:100svh;}
+.hero-full .hero-layers{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:transparent;}
+.hero-full .hero-layer{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;pointer-events:none;}
+.hero-full .hero-layer--back{z-index:1;}
+.hero-full .hero-layer--main{z-index:2;}
+.hero-full .hero-layer--front{z-index:3;}
+.hero-full .hero-header{position:relative;z-index:7;}
+.hero-full .scroll-guide{z-index:7;}
+/* CMS作品0件のときにレイアウトを壊さない */
+.exhibition-stage.is-empty{display:flex;align-items:center;justify-content:center;color:var(--gold2);font-size:13px;letter-spacing:.15em;text-align:center;}
+.exhibition-arrow[hidden]{display:none!important;}
+.empty-works{grid-column:1/-1;text-align:center;padding:70px 12px;color:var(--gold2);border:1px solid var(--line);background:rgba(7,15,33,.3);}
+.empty-topics{padding:22px 7px;color:var(--muted);font-size:12px;}
+.profile-topic .topic-title{font-size:14px;line-height:1.7;font-weight:500;margin:6px 0 0;color:var(--gold2);}
+.profile-about-text,.profile-service-copy p,.profile-topic p{white-space:pre-line;}
+/* 背景は既存の assets/oil-night.webp を継続使用。透過部分から見える。 */
+@media(max-width:700px){.hero-full{min-height:560px;height:100svh}.hero-full .hero-layer{object-fit:contain}}

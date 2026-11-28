@@ -1,26 +1,27 @@
-# Otuki. — CMS連携・GitHub Pages公開準備版
+# Otsuki.-illustration | Otuki. 作品サイト
 
-## 今回の変更
-- 今回アップロードされた index/contact/works、CSS、app.js、data.js をベースに構築。
-- デザインとカルーセルは維持し、`cms-bridge.js` で旧microCMSの公開JSONを変換。
-- `.github/workflows/update-cms.yml` は30分ごとにmicroCMSからJSONを取得。GitHub Secretsの `MICROCMS_API_KEY` を利用（APIキーは公開コードに書かない）。
-- **旧サイトのテスト作品や文章は読み込まない初期設定**。`data.js` の `cmsWorksEnabled` と `cmsSettingsEnabled` は `false`。
+本ZIPは**今回ユーザーがアップロードした index(5).html / works(2).html / contact(2).html / style(5).css / app(2).js / data(2).js / README(2).md のデザインとコードをベースにしたGitHub Pages用のサイト一式**です。`index.html`、`works.html`、`profile.html`、`contact.html`、`style.css`、`app.js`、`cms-bridge.js`、`data.js`、`assets/`、`data/`、`.github/`を含みます。
 
-## 公開までの手順
-1. **画像フォルダを追加**：今回の添付に `img/` がないため、ローカルの `img` フォルダをこのZIP内のルートにそのまま追加してください。特に `img/KV/KV_01.png`、`img/MVイラスト/`、`img/skeb/`、`img/創作/`。`assets/` は同梱済み。
-2. GitHubの既存リポジトリの**バックアップを取ってから**、このフォルダ内のファイルをリポジトリのルートにアップロード。`.github` フォルダも含める。既存の `MICROCMS_API_KEY` Secret は保持。
-3. GitHub Settings → Pages → Build and deployment → Deploy from a branch → `main` / `/(root)`（既存の設定に合わせて確認）。公開URLで `index.html`、`works.html`、`contact.html` と画像をチェック。
-4. GitHub Actions → `Update CMS Data` → `Run workflow` でJSON生成を確認。**最初はCMSの作品を表示しません**。
-5. microCMSで旧テスト作品を削除・非公開にし、新しいサイトの作品を登録。その後 `data.js` の `cmsWorksEnabled: true` に変更してpush。以降の作品更新はCMSのみでOK。
-6. 受付状況をCMS管理したくなったら、旧テスト文を更新した上で `cmsSettingsEnabled: true` に変更。
-7. Google Search Consoleで公開URLを登録・URL検査→インデックス登録リクエスト。公開しただけではGoogle検索への掲載は保証されません。
+## 現在の仕様
 
-## 注意事項
-- `img/` は未添付なのでこのZIPだけでは現在の作品画像は表示されません。ファイル名・大文字小文字に注意。
-- `data.js` の `email` は空です。Contactフォームは直接送信ではなく、メールアプリ起動方式。メールアドレスを設定するまで送信不可。
-- `assets/oil-night*.webp` は試作の生成背景素材。公開利用方針に合わせて差し替えてください。
-- `works.json` の既存フィールドにカテゴリはありません。カテゴリ未設定はIllustration扱い。Character分類を使う場合はCMSに `category` フィールドを追加し、値 `character` を指定してください。
-- CMSが一時的に読み込めない場合、ローカルの `data.js` 作品にフォールバックします。`file://` でのfetchは制限されるので、CMS接続の確認はGitHub Pagesまたはローカルサーバーで行ってください。
-- GitHub Actionsのcronは実行が遅延する場合があります。手動実行も可能です。100件超の作品はAPIページネーションの追加が必要です。
-- 旧リポジトリのファイルが残る場合は不要な旧ページを削除してください。Search Consoleに古いページが残る可能性があります。
+- 背景：`assets/oil-night.webp` ほか、既存の油絵風背景と星の演出を維持。**GitHubに追加の `img/` 画像は不要**。
+- KV：サイト共通背景の上に、microCMSの透過画像 `heroBack`、`heroMain`、`heroFront` を3枚重ねます。3枚の画像は**同じキャンバス比率**で制作してください。何も登録しなければ背景だけ表示します。
+- WORKS：microCMSの `works` に登録した作品を一覧表示。`showOnTop` がONの作品をTOP額縁スライダーに表示。`displayOrder` の数字の小さい順。
+- PROFILE：左の固定画像、プロフィール画像・説明、Illustration / Live2D / Character Designの画像付き・枠付きサービスカード、Topics。CMSの繰り返しフィールド `services` があればカード件数も自由に増減できます。
+- CONTACT：PC左の固定スライド画像（複数枚は6秒ごとに切替）、右だけスクロール。スマホは画像を非表示にしてフォームを全幅表示。
+- SNS：共通フッターに X / Instagram / YouTube / Skeb / pixiv。microCMSでURL登録後クリック可能。
+- CMS未設定時は仮画像・案内文が表示されます。**microCMSのAPIスキーマの作成は自動では行われません。** 詳しい設定は `CMS_SETUP.md` を参照。
 
+## 公開手順
+
+1. **現在のリポジトリのバックアップ**を取る。既存の `img` はこのパッケージで削除しません（CMS移行が完了後、不要になったものだけ削除）。
+2. ZIPを展開し、`Otsuki.-illustration` フォルダの**中身**を既存のGitHubリポジトリ `Otsuki.-illustration` の直下にアップロード。同じファイルを上書き。`.github/workflows/update-cms.yml` も反映。
+3. GitHub Pagesを `main` / `/(root)` に設定して公開。背景とレイアウトはここで表示できます。
+4. microCMSの既存API `works` と `site-settings` のフィールドを `CMS_SETUP.md` の通りに作成する。古いテスト作品は公開前に非公開/削除。
+5. GitHubの **Settings > Secrets and variables > Actions** に `MICROCMS_API_KEY` が設定されているか確認。**ブラウザ用ファイルにAPIキーを記載しない**。
+6. **Actions > Update CMS Data > Run workflow** を実行し、緑のチェックを確認。更新された `data/works.json` と `data/site-settings.json` には画像のURLが入る。
+7. GitHub Pagesが更新されてから公開サイトを強制更新（Windows: Ctrl+Shift+R）。画像が出れば連携完了。以降、作品・画像・SNS変更はmicroCMSから更新して、定期同期を待つだけです。
+
+注意：GitHub Pagesの公開状態やCMSのフィールドは、このZIPだけでは自動設定されません。インターネットにつながる `https://` サイトでCMSを確認してください。ファイルをダブルクリックして `file://` で開くと、fetchでJSONを読み込めない場合があります。
+
+お問い合わせフォームは実際のサーバー送信機能ではなく、microCMSの `contactEmail` に登録した宛先に対して **mailto:** でメールアプリを開く方式です。メールクライアントの設定が必要で、サイトから自動送信されるものではありません。

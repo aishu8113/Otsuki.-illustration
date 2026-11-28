@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1531"><meta name="description" content="Otuki. のプロフィール、サービス、活動のお知らせ。">
+<title>Profile | Otuki.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="data.js" defer></script><script src="cms-bridge.js" defer></script><script src="app.js" defer></script>
+</head>
+<body class="profile-page split-page">
+<div class="world-bg" aria-hidden="true"></div><div class="fireflies" id="fireflies" aria-hidden="true"></div>
+<main class="split-layout profile-layout">
+  <aside class="split-visual profile-art-side" aria-label="プロフィールメイン画像">
+    <img id="profile-cover-image" src="assets/placeholder-portrait.svg" alt="プロフィール用イメージ（仮画像）" />
+    <div class="split-visual-shade"></div>
+    <div class="split-visual-caption"><span>ILLUSTRATION &amp; LIVE2D</span><p>小さな光から、<br>物語を描く。</p></div>
+  </aside>
+  <div class="split-panel profile-content">
+    <header class="header split-header">
+  <a class="logo" href="index.html" aria-label="Otuki. ホーム">O<span>tuki.</span><i>✧</i></a>
+  <nav class="split-nav" aria-label="ページ移動"><a href="index.html">Home</a><a href="works.html">Works</a><a href="contact.html">Contact ↗</a></nav>
+</header>
+    <div class="split-panel-inner">
+    <section class="profile-section profile-intro" aria-labelledby="profile-title">
+      <p class="eyebrow">NICE TO MEET YOU</p><h1 id="profile-title">Profile</h1>
+      <p class="jp-sub">プロフィール</p><div class="heading-ornament">─── ✦ ───</div>
+      <div class="profile-person">
+        <div class="profile-avatar"><img id="profile-avatar-image" src="assets/placeholder-portrait.svg" alt="Otuki. プロフィール画像（仮画像）" /></div>
+        <div class="profile-name"><span class="eyebrow">ILLUSTRATOR</span><h2>Otuki.</h2><p>イラストレーター / Live2D</p></div>
+      </div>
+      <p id="profile-about-text" class="profile-about-text">ここに自己紹介文が入ります。制作への想いや得意なテイスト、活動内容などを掲載する予定です。</p>
+    </section>
+    <section class="profile-section" aria-labelledby="profile-services-title">
+      <div class="profile-section-title"><span class="eyebrow">WHAT I CAN DO</span><h2 id="profile-services-title">Services</h2><p>制作できること</p></div>
+      <div class="profile-services" id="profile-services">
+        <article class="profile-service" data-service="1"><div class="profile-service-image"><img src="assets/placeholder-landscape.svg" alt="イラスト制作のサンプル画像（仮画像）" loading="lazy"></div><div class="profile-service-copy"><span class="service-index">01 / SERVICE</span><h3>Illustration</h3><p>イラスト制作サービスの内容をここに掲載します。使用用途や制作範囲など、依頼前に知りたい情報をまとめる場所です。</p></div></article>
+        <article class="profile-service" data-service="2"><div class="profile-service-image"><img src="assets/placeholder-landscape.svg" alt="Live2D制作のサンプル画像（仮画像）" loading="lazy"></div><div class="profile-service-copy"><span class="service-index">02 / SERVICE</span><h3>Live2D</h3><p>Live2Dの制作・モデリングなど、対応する内容をここに掲載します。制作工程や相談可能な範囲を紹介できます。</p></div></article>
+        <article class="profile-service" data-service="3"><div class="profile-service-image"><img src="assets/placeholder-landscape.svg" alt="キャラクターデザインのサンプル画像（仮画像）" loading="lazy"></div><div class="profile-service-copy"><span class="service-index">03 / SERVICE</span><h3>Character Design</h3><p>キャラクターデザインのサービス内容をここに掲載します。立ち絵やデザイン案など、対応範囲を案内する場所です。</p></div></article>
+      </div>
+    </section>
+    <section class="profile-section" aria-labelledby="profile-topics-title">
+      <div class="profile-section-title"><span class="eyebrow">LATEST UPDATES</span><h2 id="profile-topics-title">Topics</h2><p>お知らせ・活動情報</p></div>
+      <div class="profile-topics" id="profile-topics"></div>
+    </section>
+    <div class="profile-contact-cta"><p>ご相談・ご依頼はこちらから。</p><a class="gold-btn" href="contact.html">Contact <span>↗</span></a></div>
+    </div>
+    <footer class="footer site-footer" aria-label="サイトフッター">
+  <a class="logo footer-logo" href="index.html" aria-label="Otuki. ホーム">Otuki.<i aria-hidden="true">✧</i></a>
+  <p class="footer-social-heading">Follow Otuki.</p>
+  <div id="social-links" class="social-links" aria-label="SNSリンク"></div>
+  <small>© <span id="year"></span> Otuki. All rights reserved.</small>
+</footer>
+  </div>
+</main>
+</body></html>
